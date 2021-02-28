@@ -168,27 +168,33 @@ public class HelloWorld extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	
-		VBox pane = new VBox();
+		// create vertical box, and two horizontal boxes
+		VBox vbox = new VBox();
 		HBox firstRow = new HBox();
 		HBox secondRow = new HBox();
 		
+		// create 4 charts
 		LineChart firstLineChart = this.createFirstChart();		
 		LineChart secondLineChart = this.createSecondChart();
 		LineChart thirdLineChart = this.createThirdChart();		
 		LineChart fourthLineChart = this.createFourthChart();				
 
+		// add charts to the first horizontal box
 		firstRow.getChildren().add(firstLineChart);
 		firstRow.getChildren().add(secondLineChart);			
 		
+		// add charts to the second horizontal box
 		secondRow.getChildren().add(thirdLineChart);
 		secondRow.getChildren().add(fourthLineChart);		
 	
-		pane.getChildren().add(firstRow);
-		pane.getChildren().add(secondRow);
+		// add two horizontal boxes to the vertical box
+		vbox.getChildren().add(firstRow);
+		vbox.getChildren().add(secondRow);
 		
-		Scene scene = new Scene(pane, 1200, 800);
+		// set up the scene
+		Scene scene = new Scene(vbox, 1200, 800);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Hello World");
+		primaryStage.setTitle("My Charts");
 		primaryStage.show();
 	}
 
