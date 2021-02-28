@@ -22,6 +22,7 @@ public class HelloWorld extends Application {
 		
 	}
 	
+	// helper function to create series data from tuples (each tuple is a (x,y) pair)
 	private void addPoints(XYChart.Series series, Tuple[] tuples) {
 		int size = tuples.length;
 		int i;
@@ -31,28 +32,7 @@ public class HelloWorld extends Application {
 		}
 	}
 
-	private LineChart createSecondChart() {
-		Tuple[] firstDataTuples = {
-				new Tuple(1960, 85), 
-				new Tuple(1980, 25),
-				new Tuple(1990, 35),
-				new Tuple(2000, 175),
-				new Tuple(2013, 220),
-				new Tuple(2017, 290)				
-		};
-		
-		Tuple[] secondDataTuples = {
-				new Tuple(1970, 35), 
-				new Tuple(1980, 45),
-				new Tuple(1990, 55),
-				new Tuple(200, 160),
-				new Tuple(2013, 199),
-				new Tuple(2017, 270)				
-		};		
-		
-		return createLineChart(firstDataTuples, secondDataTuples);
-	}		
-	
+	// helper function to create line chart from two arrays of tuples
 	private LineChart createLineChart(Tuple[] firstDataTuples, Tuple[] secondDataTuples) {
 		// Define Axis
 		NumberAxis xAxis = new NumberAxis(1960, 2020, 10);
@@ -101,6 +81,28 @@ public class HelloWorld extends Application {
 		return createLineChart(firstDataTuples, secondDataTuples);
 	}	
 	
+	private LineChart createSecondChart() {
+		Tuple[] firstDataTuples = {
+				new Tuple(1960, 85), 
+				new Tuple(1980, 25),
+				new Tuple(1990, 35),
+				new Tuple(2000, 175),
+				new Tuple(2013, 220),
+				new Tuple(2017, 290)				
+		};
+		
+		Tuple[] secondDataTuples = {
+				new Tuple(1970, 35), 
+				new Tuple(1980, 45),
+				new Tuple(1990, 55),
+				new Tuple(200, 160),
+				new Tuple(2013, 199),
+				new Tuple(2017, 270)				
+		};		
+		
+		return createLineChart(firstDataTuples, secondDataTuples);
+	}		
+	
 	private LineChart createThirdChart() {
 		Tuple[] firstDataTuples = {
 				new Tuple(1960, 85), 
@@ -122,49 +124,29 @@ public class HelloWorld extends Application {
 		
 		return createLineChart(firstDataTuples, secondDataTuples);
 	}	
-	
+
 	private LineChart createFourthChart() {
-		// Define Axis
-		NumberAxis xAxis = new NumberAxis(1960, 2020, 10);
-		xAxis.setLabel("Years");
+		Tuple[] firstDataTuples = {
+				new Tuple(1960, 85), 
+				new Tuple(1980, 25),
+				new Tuple(1990, 35),
+				new Tuple(2000, 175),
+				new Tuple(2013, 220),
+				new Tuple(2017, 290)				
+		};
 		
-		NumberAxis yAxis = new NumberAxis(0, 350, 50);
-		yAxis.setLabel("No. of Schools");
-		
-		LineChart lineChart = new LineChart(xAxis, yAxis);
-		
-		// prepare series of data
-		XYChart.Series series = new XYChart.Series<>();
-		series.setName("No of Schools in a Year");
-		
-		series.getData().add(new XYChart.Data(1970, 15));
-		series.getData().add(new XYChart.Data(1980, 25));		
-		series.getData().add(new XYChart.Data(1990, 35));		
-		series.getData().add(new XYChart.Data(2000, 175));		
-		series.getData().add(new XYChart.Data(2013, 220));		
-		series.getData().add(new XYChart.Data(2017, 290));
-		
-		XYChart.Series series2 = new XYChart.Series<>();
-		series2.setName("Another No of Schools in a Year");
-		
-		Tuple[] secondDateTuples = {
+		Tuple[] secondDataTuples = {
 				new Tuple(1970, 35), 
 				new Tuple(1980, 45),
 				new Tuple(1990, 55),
 				new Tuple(200, 160),
 				new Tuple(2013, 199),
 				new Tuple(2017, 270)				
-		};
+		};		
 		
-		addPoints(series2, secondDateTuples);
-		
-		// set the data to line chart
-		lineChart.getData().addAll(series, series2);
-		
-		return lineChart;
-	
-	}	
-	
+		return createLineChart(firstDataTuples, secondDataTuples);
+	}		
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	
